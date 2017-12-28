@@ -80,50 +80,7 @@ namespace chili
 
 int main()
 {
-	std::ifstream blob( "blob.txt" );
-	if( !blob )
-	{
-		chili::print( "Failed to open file: " );
-		while( !_kbhit() );
-	}
-
-	for( char c = blob.get(); blob.good(); c = blob.get() )
-	{
-		_putch( c );
-	}
-	_putch( '\n' );
-
-	if( blob.bad() )
-	{
-		chili::print( "I/O error occoured while opening the file!" );
-	}
-	else if( blob.eof() )
-	{
-		chili::print( "Successfully reached the end of file!" );
-	}
-	else
-	{
-		chili::print( "Some error occoured while reading the file!" );
-	}
-
-	std::ofstream ans( "ans2blob.txt" );
-	chili::print( "\nWrite your answer: " );
-	for( char c = _getch(); c != 13; c = _getch())
-	{
-		if( c != '\b' )
-		{
-			_putch( c );
-			ans.put( c );
-		}
-		else
-		{
-			_putch( c );
-			ans.seekp( -1, std::ios::cur );
-		}
-	}
-	chili::print( "\nYour answer was stored in file \"ans2blob.txt\"" );
-
-
+	
 
 	chili::print( "\nPress any key to exit..." );
 	while( !_kbhit() );
